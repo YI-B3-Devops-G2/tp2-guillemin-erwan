@@ -16,3 +16,8 @@ github_username: Erwan0
 ```
 docker-compose up
 ```
+
+Vous pouvez ensuite aller sur l'adresse
+```
+localhost:3000
+```
