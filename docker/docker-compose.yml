@@ -1,0 +1,48 @@
+version: '3.1'
+services:
+
+  redis:
+    image: "redis"
+    networks:
+      - "network-db"
+
+  app:
+    build:
+      context: "../"
+      dockerfile: "docker/app/Dockerfile"
+    container_name: "DockerApp"
+    environment:
+      - "NODE_ENV=production"
+    networks:
+      - "network-db"
+      - "network-nodejs"
+      
+  nginx:
+    build:
+      context: "./nginx"
+      dockerfile: "Dockerfile"
+    environment:
+      - "HOSTNAME=app:3000"
+    depends_on:
+      - "app"
+    networks:
+      - "network-nodejs"
+    ports:
+      - "3000:80"
+
+  postgres:
+    image: "postgres"
+    container_name: "postgres"
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "azerty"
+      POSTGRES_DB: "DatabaseDocker"
+      PGDATA: "/data/postgres"
+    depends_on:
+      - "redis"
+    networks:
+      - "network-db"
+
+networks:
+  network-db:
+  network-nodejs:

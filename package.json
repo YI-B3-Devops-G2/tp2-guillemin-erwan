@@ -1,0 +1,15 @@
+{
+  "name": "devops_docker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.17.0",
+    "redis": "^2.8.0"
+  }
+}
