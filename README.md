@@ -6,9 +6,11 @@ mail: erwan.guillemin@ynov.com
 github_username: Erwan0
 
 
-## Commande
+## Installation
 
-
+1 - Cloner le repo
+2 - Aller dans le dossier "docker" avec votre terminal.
+3 - Lancer la commande suivante:
 ```
-a
+docker-compose up
 ```
